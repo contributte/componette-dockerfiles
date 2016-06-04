@@ -1,5 +1,5 @@
 proxy:
-  image: componette/proxy
+  image: componette/dockerfiles:proxy
 
   ports:
    - 80:80
@@ -10,7 +10,7 @@ proxy:
     - nginx
 
 varnish:
-  image: componette/varnish
+  image: componette/dockerfiles:varnish
 
   volumes_from:
     - data
@@ -19,7 +19,7 @@ varnish:
     - nginx
 
 nginx:
-  image: componette/nginx
+  image: componette/dockerfiles:nginx
 
   volumes_from:
     - data
@@ -28,7 +28,7 @@ nginx:
    - php
  
 php:
-  image: componette/php
+  image: componette/dockerfiles:php
 
   volumes_from:
    - data
