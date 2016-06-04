@@ -87,7 +87,7 @@ These certificates are self-signed and chrome does not trust them.
 
 You have to add [this special certificate](https://github.com/componette/dockerfiles/blob/master/proxy/ssl.d/chrome-certificate.der) to chrome certificates manager.
 
-![](https://raw.githubusercontent.com/componette/dockerfiles/master/_docs/chrome.png "Chrome - certificate manager")
+![](https://raw.githubusercontent.com/componette/dockerfiles/master/_doc/chrome.png "Chrome - certificate manager")
 
 1. Settings
 2. Manage certificates..
