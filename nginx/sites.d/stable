@@ -1,0 +1,20 @@
+server {
+  listen 80;
+  server_name www.componette.com componette.com;
+  server_name www.componette.dev componette.dev;
+
+  if ($host ~* ^www\.(.*)$) {
+    rewrite / $scheme://$1 permanent;
+  }
+
+  error_log /var/log/nginx/stable-error.log error;
+
+  root /srv/app/stable/www;
+
+  location / {
+    try_files $uri $uri/ /index.php$is_args$args;
+  }
+
+  include /etc/nginx/parts.d/common/*.conf;
+  include /etc/nginx/parts.d/stable/*.conf;
+}

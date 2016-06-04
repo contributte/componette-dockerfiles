@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Configuration
+PREFIX=componette
+COMPOSE=./docker-compose.yml
+VERSION=1.0
+
+# Functions
+usage() {
+cat << EOF
+Usage: ${0##*/} [-h]
+
+Componette Docker Manager.
+
+Version: $VERSION
+
+Options:
+
+  -h          Display this help and exit.
+
+Commands:
+  up          Start containers.
+  build       Build containers.
+  reup        Build & Start containers.
+  stop        Stop container.
+  die         Destroy containers.
+  logs        Display logs.
+  exec        Exec command in container.
+  go          Attach container.
+EOF
+}
+
+call() {
+	docker-compose -p $PREFIX -f $COMPOSE $*
+}
+
+run() {
+	call up -d
+}
+
+build() {
+	call build
+}
+
+stop() {
+	call stop
+}
+
+reup() {
+	build
+	run
+}
+
+destroy() {
+	call stop
+	call rm --all
+}
+
+logs() {
+	call logs -f
+}
+
+fire() {
+	call exec $1
+}
+
+go() {
+	call exec $1 /bin/bash
+}
+
+# Main switch
+case "$1" in
+	up)
+		run
+		exit 0
+		;;
+	build)
+		build
+		exit 0
+		;;
+	reup)
+		reup
+		exit 0
+		;;
+	stop)
+		stop
+		exit 0
+		;;
+	die)
+		destroy
+		exit 0
+		;;
+	logs)
+		logs
+		exit 0
+		;;
+	exec)
+		fire
+		exit 0
+		;;
+	go)
+		go $2 $3
+		exit 0
+		;;
+	*)
+		usage
+		exit 1
+		;;
+esac
+shift

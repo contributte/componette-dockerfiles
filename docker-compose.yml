@@ -1,0 +1,55 @@
+proxy:
+  image: componette/proxy
+
+  ports:
+   - 80:80
+   - 443:443
+
+  links:
+    - varnish
+    - nginx
+
+varnish:
+  image: componette/varnish
+
+  volumes_from:
+    - data
+
+  links:
+    - nginx
+
+nginx:
+  image: componette/nginx
+
+  volumes_from:
+    - data
+
+  links:
+   - php
+ 
+php:
+  image: componette/php
+
+  volumes_from:
+   - data
+
+  links:
+   - db
+
+db:
+  image: mariadb:latest
+
+  environment:
+   - MYSQL_ROOT_PASSWORD=dockerroot
+   - MYSQL_DATABASE=docker
+   - MYSQL_USER=docker
+   - MYSQL_PASSWORD=docker
+
+  volumes:
+   - ./data/mysql:/var/lib/mysql
+
+data:
+  image: busybox
+  volumes:
+   - ~/:/srv/app/stable
+   - ~/:/srv/app/dev

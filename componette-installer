@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Download script
+wget https://raw.githubusercontent.com/componette/dockerfiles/master/componette
+
+# Download docker compose
+wget https://raw.githubusercontent.com/componette/dockerfiles/master/docker-compose.yml

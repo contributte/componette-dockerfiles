@@ -1,0 +1,6 @@
+# Componette -> daily cron
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+0 3 * * * www-data cd /srv/app/stable/cron && sh daily >> daily.log 2>&1

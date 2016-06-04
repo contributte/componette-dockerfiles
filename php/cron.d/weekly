@@ -1,0 +1,6 @@
+# Componette -> weekly cron
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+0 5 * * 0 www-data cd /srv/app/stable/cron && sh weekly >> weekly.log 2>&1
