@@ -19,9 +19,10 @@ Options:
   -h          Display this help and exit.
 
 Commands:
-  up          Start containers.
+  up          Create & create containers.
+  fup         Force recreate containers.
   build       Build containers.
-  reup        Build & Start containers.
+  reup        Build & force recreate containers.
   stop        Stop container.
   die         Destroy containers.
   logs        Display logs.
@@ -34,21 +35,25 @@ call() {
 	docker-compose -p $PREFIX -f $COMPOSE $*
 }
 
-run() {
+up() {
 	call up -d
+}
+
+fup() {
+	call up -d --force-recreate
 }
 
 build() {
 	call build
 }
 
-stop() {
-	call stop
-}
-
 reup() {
 	build
-	run
+	fup
+}
+
+stop() {
+	call stop
 }
 
 destroy() {
@@ -71,7 +76,11 @@ go() {
 # Main switch
 case "$1" in
 	up)
-		run
+		up
+		exit 0
+		;;
+	fup)
+		fup
 		exit 0
 		;;
 	build)
@@ -99,7 +108,7 @@ case "$1" in
 		exit 0
 		;;
 	go)
-		go $2 $3
+		go $2
 		exit 0
 		;;
 	*)
