@@ -1,5 +1,6 @@
 proxy:
   image: componette/dockerfiles:proxy
+  restart: always
 
   ports:
    - 80:80
@@ -11,6 +12,7 @@ proxy:
 
 varnish:
   image: componette/dockerfiles:varnish
+  restart: always
 
   volumes_from:
     - data
@@ -20,6 +22,7 @@ varnish:
 
 nginx:
   image: componette/dockerfiles:nginx
+  restart: always
 
   volumes_from:
     - data
@@ -29,6 +32,7 @@ nginx:
  
 php:
   image: componette/dockerfiles:php
+  restart: always
 
   volumes_from:
    - data
@@ -38,6 +42,7 @@ php:
 
 db:
   image: mariadb:latest
+  restart: always
 
   environment:
    - MYSQL_ROOT_PASSWORD=dockerroot
