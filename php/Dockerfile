@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y rsyslog cron ssmtp && \
     rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
 
 # PHP
-ADD ./php-fpm.conf /etc/php7/fpm/php-fpm.conf
+ADD ./php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
 
 # Cron
 ADD ./cron.d/hourly /etc/cron.d/componette-hourly
