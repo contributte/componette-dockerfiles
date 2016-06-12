@@ -7,7 +7,6 @@ RUN rm /etc/nginx/sites-enabled/default
 
 # Nginx configuration
 ADD ./nginx.conf /etc/nginx/nginx.conf
-ADD ./mime.types /etc/nginx/mime.types
 
 # Upstreams
 ADD ./upstreams.d /etc/nginx/upstreams.d
@@ -19,7 +18,7 @@ ADD ./auth.d /etc/nginx/auth.d
 ADD ./parts.d /etc/nginx/parts.d
 
 # Sites
-ADD ./sites.d /etc/nginx/sites-enabled
+ADD ./sites.d /etc/nginx/sites.d
 
 # Entrypoint
 ADD ./entrypoint.sh /entrypoint.sh
