@@ -2,9 +2,6 @@ FROM dockette/nginx
 
 MAINTAINER Milan Sulc <sulcmil@gmail.com>
 
-# Remove default site
-RUN rm /etc/nginx/sites-enabled/default
-
 # Nginx configuration
 ADD ./nginx.conf /etc/nginx/nginx.conf
 
