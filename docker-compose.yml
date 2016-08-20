@@ -55,6 +55,3 @@ db:
 
 data:
   image: busybox
-  volumes:
-   - ~/:/srv/app/stable
-   - ~/:/srv/app/dev

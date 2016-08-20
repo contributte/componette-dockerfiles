@@ -1,0 +1,15 @@
+proxy:
+  volumes:
+   - ./data/ssl/dhparam2048.pem:/etc/nginx/dhparam2048.pem:ro
+   - ./data/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
+   - ./data/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
+   - ./data/acme:/etc/nginx/acme
+
+nginx:
+  volumes:
+    - ./data/nginx/auth.d/dev:/etc/nginx/auth.d/dev:ro
+
+data:
+  volumes:
+   - ./../web/stable:/srv/app/stable
+   - ./../web/dev:/srv/app/dev
