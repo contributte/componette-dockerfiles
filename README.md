@@ -1,5 +1,9 @@
 # Componette - Docker configuration
 
+## Scheme
+
+![Server scheme](https://raw.githubusercontent.com/componette/dockerfiles/master/_doc/server.jpg)
+
 ## Containers
 
 1. data [busybox] 
