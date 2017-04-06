@@ -10,4 +10,4 @@ rsyslogd
 cron
 
 # Start PHP
-php-fpm7.0 -F
+php-fpm7.1 -F

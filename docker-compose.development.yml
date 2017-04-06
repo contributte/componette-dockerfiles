@@ -1,4 +1,0 @@
-data:
-  volumes:
-   - ~/:/srv/app/stable
-   - ~/:/srv/app/dev

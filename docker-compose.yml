@@ -1,10 +1,15 @@
 proxy:
-  image: componette/dockerfiles:proxy
+  image: traefik:v1.2.1
   restart: always
+
+  volumes:
+   - ./data/traefik/traefik.toml:/etc/traefik/traefik.toml
+   - ./data/traefik/acme.json:/etc/traefik/acme.json
 
   ports:
    - 80:80
    - 443:443
+   - 8888:8888
 
   links:
     - varnish
@@ -55,3 +60,7 @@ db:
 
 data:
   image: busybox
+
+  volumes:
+   - ~/:/srv/app/stable
+   - ~/:/srv/app/dev

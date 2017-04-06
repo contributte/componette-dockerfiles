@@ -31,7 +31,7 @@ Usage: componette [-h]
 
 Componette Docker Manager.
 
-Version: 1.0
+Version: 1.2
 
 Options:
 
@@ -71,34 +71,7 @@ wget -O https://raw.githubusercontent.com/componette/dockerfiles/master/componet
 
 All containers are pretty standalone. You can just download a `docker-compose.yml` and start it.
 
-### Nginx
-
-#### DHE cypher
-
-Nginx has pregenerated 2048b DHE cypher.
-
-If you would like to use your own (on production!), you have to generate it.
-
-```sh
-openssl dhparam -outform pem -out dhparam2048.pem 2048 
-```
-
-#### SSL
-
-Nginx has a pregenerated self-signed SSL certificates to year 2116.
-
-These certificates are self-signed and chrome does not trust them.
-
-You have to add [this special certificate](https://github.com/componette/dockerfiles/blob/master/proxy/ssl.d/chrome-certificate.der) to chrome certificates manager.
-
-![](https://raw.githubusercontent.com/componette/dockerfiles/master/_doc/chrome.png "Chrome - certificate manager")
-
-1. Settings
-2. Manage certificates..
-3. Authorities
-4. Import
-
-### MariaDB
+### Database
 
 Update credentials in `docker-compose.yml`.
 
@@ -106,4 +79,3 @@ Defaults:
 - user: root/dockerroot
 - user: docker/docker
 - database: docker
-

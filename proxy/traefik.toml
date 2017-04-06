@@ -1,0 +1,72 @@
+################################################################
+# Global configuration
+################################################################
+
+#logLevel = "DEBUG"
+#debug = true
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+  compress = false
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+################################################################
+# ACME (Let's Encrypt)
+################################################################
+
+[acme]
+
+email = "admin@componette.com"
+storage = "/etc/traefik/acme.json"
+entryPoint = "https"
+
+[[acme.domains]]
+ main = "componette.com"
+ sans = ["www.componette.com"]
+
+[[acme.domains]]
+ main = "dev.componette.com"
+
+################################################################
+# Web configuration backend
+################################################################
+
+[web]
+address = ":8888"
+
+[web.auth.basic]
+users = ["foo:bar"]
+
+################################################################
+# Rules
+################################################################
+[file]
+
+[backends]
+  [backends.componette]
+    [backends.componette.servers.node1]
+      url = "http://varnish:80"
+
+  [backends.componette_dev]
+    [backends.componette_dev.servers.node1]
+      url = "http://nginx:80"
+
+[frontends]
+  [frontends.componette]
+  backend = "componette"
+  passHostHeader = true 
+    [frontends.componette.routes.route]
+    rule = "Host: componette.com,www.componette.com"  
+
+  [frontends.componette_dev]
+  backend = "componette_dev"
+  passHostHeader = true 
+    [frontends.componette_dev.routes.route]
+    rule = "Host: dev.componette.com"  

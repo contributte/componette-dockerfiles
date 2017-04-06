@@ -3,8 +3,8 @@
 # Configuration
 PREFIX=componette
 COMPOSE_FILE=./docker-compose.yml
-COMPOSE_SUB_FILE=./docker-compose.development.yml
-VERSION=1.1
+COMPOSE_SUB_FILE=./docker-compose.local.yml
+VERSION=1.2
 
 # Functions
 usage() {
@@ -20,7 +20,7 @@ Options:
   -h          Display this help and exit.
 
 Commands:
-  up          Create & create containers.
+  up          Pull & create containers.
   fup         Force recreate containers.
   build       Build containers.
   reup        Build & force recreate containers.
@@ -33,7 +33,11 @@ EOF
 }
 
 call() {
-	docker-compose -p $PREFIX -f $COMPOSE_FILE -f $COMPOSE_SUB_FILE $*
+	if [ -f "$COMPOSE_SUB_FILE" ]; then 
+		docker-compose -p $PREFIX -f "$COMPOSE_FILE" -f "$COMPOSE_SUB_FILE" $*
+	else 
+		docker-compose -p $PREFIX -f "$COMPOSE_FILE" $*
+	fi
 }
 
 up() {
