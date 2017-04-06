@@ -43,7 +43,7 @@ RUN apt-get update && apt-get dist-upgrade -y && \
     ln -s ${PHP_MODS_DIR}/custom.ini ${PHP_CLI_CONF_DIR}/999-custom.ini && \
     ln -s ${PHP_MODS_DIR}/custom.ini ${PHP_CGI_CONF_DIR}/999-custom.ini && \
     # NODEJS ###################################################################
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - && \
+    curl -sL https://deb.nodesource.com/setup_7.x | -E bash - && \
     apt-get install -y nodejs && \
     # CLEAN UP #################################################################
     apt-get clean -y && \
