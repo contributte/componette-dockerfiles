@@ -52,7 +52,7 @@ users = ["foo:bar"]
 [backends]
   [backends.componette]
     [backends.componette.servers.node1]
-      url = "http://varnish:80"
+      url = "http://nginx:80"
 
   [backends.componette_dev]
     [backends.componette_dev.servers.node1]

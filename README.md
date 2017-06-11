@@ -18,9 +18,7 @@
 
 5. nginx [[componette/nginx](https://github.com/componette/dockerfiles/blob/master/nginx)]
 
-6. varnish [[componette/varnish](https://github.com/componette/dockerfiles/blob/master/varnish)]
-
-7. proxy [[componette/proxy](https://github.com/componette/dockerfiles/blob/master/proxy)]
+6. proxy [[componette/proxy](https://github.com/componette/dockerfiles/blob/master/proxy)]
 
 ## Bin
 

@@ -1,5 +1,5 @@
 proxy:
-  image: traefik:v1.2.1
+  image: traefik:v1.3.0
   restart: always
 
   volumes:
@@ -10,17 +10,6 @@ proxy:
    - 80:80
    - 443:443
    - 8888:8888
-
-  links:
-    - varnish
-    - nginx
-
-varnish:
-  image: componette/dockerfiles:varnish
-  restart: always
-
-  volumes_from:
-    - data
 
   links:
     - nginx

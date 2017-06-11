@@ -1,10 +1,12 @@
 server {
   listen 80;
-  server_name www.componette.com componette.com;
-  server_name www.componette.dev componette.dev;
+  server_name componette.com;
+  server_name www.componette.com;
+  server_name componette.dev;
+  server_name www.componette.dev;
 
-  if ($host ~* ^www\.(.*)$) {
-    rewrite / $scheme://$1 permanent;
+  if ($host ~* ^www.componette.com$) {
+    return 301 https://componette.com$request_uri;
   }
 
   error_log /var/log/nginx/stable-error.log error;
