@@ -9,6 +9,10 @@ server {
     return 301 https://componette.com$request_uri;
   }
 
+  location ~ ^/(wp-admin|wp-login\.php) {
+    deny all;
+  }
+
   error_log /var/log/nginx/stable-error.log error;
 
   root /srv/app/stable/www;
