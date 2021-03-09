@@ -24,7 +24,7 @@
 
 There is a script called `Componette Docker Manager`.
 
-```sh
+```bash
 Usage: componette [-h]
 
 Componette Docker Manager.
@@ -48,7 +48,7 @@ Commands:
 
 You could download it.
 
-```sh
+```bash
 wget https://raw.githubusercontent.com/componette/dockerfiles/master/componette
 ```
 
@@ -61,7 +61,7 @@ wget https://raw.githubusercontent.com/componette/dockerfiles/master/componette
 
 ### Automatic
 
-```sh
+```bash
 wget -O https://raw.githubusercontent.com/componette/dockerfiles/master/componette-installer | bash
 ```
 
