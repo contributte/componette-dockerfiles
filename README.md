@@ -1,75 +1,42 @@
-# Componette - Docker configuration
+![](https://heatbadger.now.sh/github/readme/contributte/componette-dockerfiles/?deprecated=1)
 
-## Scheme
+<p align=center>
+    <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+    <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+    <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
-![Server scheme](https://raw.githubusercontent.com/componette/dockerfiles/master/_doc/server.jpg)
+<p align=center>
+    Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-## Containers
+## Disclaimer
 
-1. data [busybox] 
+| :warning: | This project is no longer being maintained. Please use [contributte/dockerfiles](https://github.com/contributte/dockerfiles).
+|---| --- |
+| GitHub| [`https://github.com/contributte/dockerfiles`](https://github.com/contributte/dockerfiles) |
 
-2. db [mariadb:10.1]
 
-4. php [[componette/php](https://github.com/componette/dockerfiles/blob/master/php)]
-    - PHP 7.0
-    - Ssmtp
-    - Rsyslog
-    - Cron
+## Documentation
 
-5. nginx [[componette/nginx](https://github.com/componette/dockerfiles/blob/master/nginx)]
+### Install
 
-6. proxy [[componette/proxy](https://github.com/componette/dockerfiles/blob/master/proxy)]
-
-## Bin
-
-There is a script called `Componette Docker Manager`.
-
-```bash
-Usage: componette [-h]
-
-Componette Docker Manager.
-
-Version: 1.2
-
-Options:
-
-  -h          Display this help and exit.
-
-Commands:
-  up          Start containers.
-  build       Build containers.
-  reup        Build & Start containers.
-  stop        Stop container.
-  die         Destroy containers.
-  logs        Display logs.
-  exec        Exec command in container.
-  go          Attach container.
-```
-
-You could download it.
-
-```bash
-wget https://raw.githubusercontent.com/componette/dockerfiles/master/componette
-```
-
-## Install
-
-### Manually
+#### Manually
 
 1. Download startup script
 2. Download or create `docker-compose.yml`
 
-### Automatic
+#### Automatic
 
 ```bash
 wget -O https://raw.githubusercontent.com/componette/dockerfiles/master/componette-installer | bash
 ```
 
-## Containers
+### Containers
 
 All containers are pretty standalone. You can just download a `docker-compose.yml` and start it.
 
-### Database
+#### Database
 
 Update credentials in `docker-compose.yml`.
 
@@ -77,3 +44,17 @@ Defaults:
 - user: root/dockerroot
 - user: docker/docker
 - database: docker
+
+
+## Development
+
+This package was maintain by these authors.
+
+<a href="https://github.com/f3l1x">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for being used this package.
