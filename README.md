@@ -16,8 +16,9 @@
 |---| --- |
 | GitHub| [`https://github.com/contributte/dockerfiles`](https://github.com/contributte/dockerfiles) |
 
-
 ## Documentation
+
+![](.docs/server.jpg)
 
 ### Install
 
@@ -44,7 +45,6 @@ Defaults:
 - user: root/dockerroot
 - user: docker/docker
 - database: docker
-
 
 ## Development
 
