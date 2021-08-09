@@ -14,7 +14,6 @@
 
 | :warning: | This project is no longer being maintained. Please use [contributte/dockerfiles](https://github.com/contributte/dockerfiles).
 |---| --- |
-| GitHub| [`https://github.com/contributte/dockerfiles`](https://github.com/contributte/dockerfiles) |
 
 ## Documentation
 
