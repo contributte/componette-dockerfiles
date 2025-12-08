@@ -13,11 +13,11 @@
 ## Disclaimer
 
 | :warning: | This project is no longer being maintained. Please use [contributte/dockerfiles](https://github.com/contributte/dockerfiles).
-|---| --- |
+|---|---|
 
 ## Documentation
 
-![](.docs/server.jpg)
+This repository contained Docker configurations and docker-compose files for Componette services.
 
 ### Install
 
@@ -47,7 +47,7 @@ Defaults:
 
 ## Development
 
-This package was maintain by these authors.
+This package was maintained by these authors.
 
 <a href="https://github.com/f3l1x">
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
@@ -56,4 +56,4 @@ This package was maintain by these authors.
 -----
 
 Consider to [support](https://contributte.org/partners.html) **contributte** development team.
-Also thank you for being used this package.
+Also thank you for using this package.
